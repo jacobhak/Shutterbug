@@ -20,9 +20,11 @@
 		16836D9916772B3800CD23AE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16836D9716772B3800CD23AE /* MainStoryboard_iPad.storyboard */; };
 		16836D9C16772B3800CD23AE /* ShutterbugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836D9B16772B3800CD23AE /* ShutterbugViewController.m */; };
 		16836DA416772D8B00CD23AE /* TopPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DA316772D8B00CD23AE /* TopPlacesTableViewController.m */; };
-		16836DAA16772EF800CD23AE /* RecentlyViewedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DA916772EF800CD23AE /* RecentlyViewedTableViewController.m */; };
+		16836DAA16772EF800CD23AE /* RecentlyViewedPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DA916772EF800CD23AE /* RecentlyViewedPhotoTableViewController.m */; };
 		16836DAE1677316600CD23AE /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DAD1677316600CD23AE /* FlickrFetcher.m */; };
-		16836DB116773CC300CD23AE /* PlaceTopPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DB016773CC300CD23AE /* PlaceTopPhotosTableViewController.m */; };
+		16836DB116773CC300CD23AE /* SaveRecentPhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DB016773CC300CD23AE /* SaveRecentPhotoTableViewController.m */; };
+		16836DB416788E3D00CD23AE /* FlickrImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DB316788E3D00CD23AE /* FlickrImageViewController.m */; };
+		16836DC816790B0600CD23AE /* PhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16836DC716790B0600CD23AE /* PhotoTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +47,17 @@
 		16836D9B16772B3800CD23AE /* ShutterbugViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShutterbugViewController.m; sourceTree = "<group>"; };
 		16836DA216772D8B00CD23AE /* TopPlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlacesTableViewController.h; sourceTree = "<group>"; };
 		16836DA316772D8B00CD23AE /* TopPlacesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlacesTableViewController.m; sourceTree = "<group>"; };
-		16836DA816772EF800CD23AE /* RecentlyViewedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyViewedTableViewController.h; sourceTree = "<group>"; };
-		16836DA916772EF800CD23AE /* RecentlyViewedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyViewedTableViewController.m; sourceTree = "<group>"; };
+		16836DA816772EF800CD23AE /* RecentlyViewedPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyViewedPhotoTableViewController.h; sourceTree = "<group>"; };
+		16836DA916772EF800CD23AE /* RecentlyViewedPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyViewedPhotoTableViewController.m; sourceTree = "<group>"; };
 		16836DAB1677316600CD23AE /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		16836DAC1677316600CD23AE /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		16836DAD1677316600CD23AE /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
-		16836DAF16773CC300CD23AE /* PlaceTopPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceTopPhotosTableViewController.h; sourceTree = "<group>"; };
-		16836DB016773CC300CD23AE /* PlaceTopPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceTopPhotosTableViewController.m; sourceTree = "<group>"; };
+		16836DAF16773CC300CD23AE /* SaveRecentPhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveRecentPhotoTableViewController.h; sourceTree = "<group>"; };
+		16836DB016773CC300CD23AE /* SaveRecentPhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveRecentPhotoTableViewController.m; sourceTree = "<group>"; };
+		16836DB216788E3D00CD23AE /* FlickrImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrImageViewController.h; sourceTree = "<group>"; };
+		16836DB316788E3D00CD23AE /* FlickrImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrImageViewController.m; sourceTree = "<group>"; };
+		16836DC616790B0600CD23AE /* PhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewController.h; sourceTree = "<group>"; };
+		16836DC716790B0600CD23AE /* PhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +104,8 @@
 		16836D8216772B3800CD23AE /* Shutterbug */ = {
 			isa = PBXGroup;
 			children = (
-				16836DA816772EF800CD23AE /* RecentlyViewedTableViewController.h */,
-				16836DA916772EF800CD23AE /* RecentlyViewedTableViewController.m */,
+				16836DA816772EF800CD23AE /* RecentlyViewedPhotoTableViewController.h */,
+				16836DA916772EF800CD23AE /* RecentlyViewedPhotoTableViewController.m */,
 				16836D8B16772B3800CD23AE /* ShutterbugAppDelegate.h */,
 				16836DAB1677316600CD23AE /* FlickrAPIKey.h */,
 				16836DAC1677316600CD23AE /* FlickrFetcher.h */,
@@ -107,8 +113,12 @@
 				16836D8C16772B3800CD23AE /* ShutterbugAppDelegate.m */,
 				16836D9416772B3800CD23AE /* MainStoryboard_iPhone.storyboard */,
 				16836D9716772B3800CD23AE /* MainStoryboard_iPad.storyboard */,
-				16836DAF16773CC300CD23AE /* PlaceTopPhotosTableViewController.h */,
-				16836DB016773CC300CD23AE /* PlaceTopPhotosTableViewController.m */,
+				16836DB216788E3D00CD23AE /* FlickrImageViewController.h */,
+				16836DB316788E3D00CD23AE /* FlickrImageViewController.m */,
+				16836DAF16773CC300CD23AE /* SaveRecentPhotoTableViewController.h */,
+				16836DB016773CC300CD23AE /* SaveRecentPhotoTableViewController.m */,
+				16836DC616790B0600CD23AE /* PhotoTableViewController.h */,
+				16836DC716790B0600CD23AE /* PhotoTableViewController.m */,
 				16836DA216772D8B00CD23AE /* TopPlacesTableViewController.h */,
 				16836DA316772D8B00CD23AE /* TopPlacesTableViewController.m */,
 				16836D9A16772B3800CD23AE /* ShutterbugViewController.h */,
@@ -204,9 +214,11 @@
 				16836D8D16772B3800CD23AE /* ShutterbugAppDelegate.m in Sources */,
 				16836D9C16772B3800CD23AE /* ShutterbugViewController.m in Sources */,
 				16836DA416772D8B00CD23AE /* TopPlacesTableViewController.m in Sources */,
-				16836DAA16772EF800CD23AE /* RecentlyViewedTableViewController.m in Sources */,
+				16836DAA16772EF800CD23AE /* RecentlyViewedPhotoTableViewController.m in Sources */,
 				16836DAE1677316600CD23AE /* FlickrFetcher.m in Sources */,
-				16836DB116773CC300CD23AE /* PlaceTopPhotosTableViewController.m in Sources */,
+				16836DB116773CC300CD23AE /* SaveRecentPhotoTableViewController.m in Sources */,
+				16836DB416788E3D00CD23AE /* FlickrImageViewController.m in Sources */,
+				16836DC816790B0600CD23AE /* PhotoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,10 +307,12 @@
 		16836DA016772B3800CD23AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jacob Håkansson (7C9597R3X5)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shutterbug/Shutterbug-Prefix.pch";
 				INFOPLIST_FILE = "Shutterbug/Shutterbug-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "507797A2-22C2-47A6-9A78-E965D114C1C6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -333,6 +347,7 @@
 				16836DA116772B3800CD23AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
