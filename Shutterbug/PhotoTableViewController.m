@@ -9,12 +9,19 @@
 #import "PhotoTableViewController.h"
 #import "FlickrImageViewController.h"
 #import "FlickrFetcher.h"
+#import "FlickrPhotoAnnotation.h"
+#import "MapViewController.h"
 
 @interface PhotoTableViewController ()
 
 @end
 
 @implementation PhotoTableViewController
+
+- (void) setPhotos:(NSArray *)photos {
+    _photos = photos;
+    [self.tableView reloadData];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -28,8 +35,8 @@
     
     // Configure the cell...
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    NSString *description = [photo valueForKey:@"description._content"];
-    NSString *title =[photo valueForKey:@"title"];
+    NSString *description = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    NSString *title =[photo valueForKey:FLICKR_PHOTO_TITLE];
     if (!title && !description) {
         cell.textLabel.text = @"Unknown";
         cell.detailTextLabel.text = @"Unknown";
@@ -48,12 +55,30 @@
     return cell;
 }
 
+- (NSArray *)mapAnnotations {
+    NSMutableArray *annotations = [NSMutableArray array];
+    for (NSDictionary *photo in self.photos) {
+        [annotations addObject:[FlickrPhotoAnnotation annotationForPhoto:photo]];
+    }
+    return annotations;
+}
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Push to Flickr Image"]) {
         FlickrImageViewController *imageViewController = segue.destinationViewController;
         NSIndexPath *send = [self.tableView indexPathForSelectedRow];
-        imageViewController.imageURL = [FlickrFetcher urlForPhoto:[self.photos objectAtIndex:send.row] format:FlickrPhotoFormatLarge];
+        dispatch_queue_t downloadQueue = dispatch_queue_create("FlickrURLDownloader", NULL);
+        dispatch_async(downloadQueue, ^{
+            NSURL *url =[FlickrFetcher urlForPhoto:[self.photos objectAtIndex:send.row] format:FlickrPhotoFormatLarge];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                imageViewController.imageURL = url;
+            });
+        });
         imageViewController.title = [self.tableView cellForRowAtIndexPath:send].textLabel.text;
+    }
+    else if ([segue.identifier isEqualToString:@"Push to map"]) {
+        MapViewController *mapVC = segue.destinationViewController;
+        mapVC.annotations = [self mapAnnotations];
     }
 }
 

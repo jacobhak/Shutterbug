@@ -4,6 +4,30 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="cWH-Xc-KXr">
+            <objects>
+                <viewController id="UzJ-bm-QrC" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TGp-rC-sh2">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="KTZ-Qv-YMf">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jvg-8X-gJB"/>
+                    <connections>
+                        <outlet property="mapView" destination="KTZ-Qv-YMf" id="Kda-PT-Ye7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ok-Bn-eVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="-2466"/>
+        </scene>
         <!--Top Places Table View Controller - Top Places-->
         <scene sceneID="dlE-GH-h1g">
             <objects>
@@ -96,7 +120,13 @@
                             <outlet property="delegate" destination="1DQ-hJ-8rd" id="5k6-93-nnW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="a7J-jm-ziX"/>
+                    <navigationItem key="navigationItem" id="a7J-jm-ziX">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="Zn4-qN-tzb">
+                            <connections>
+                                <segue destination="UzJ-bm-QrC" kind="push" identifier="Push to map" id="LEc-zs-gbF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsp-3k-lI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,9 +226,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recently Viewed Photos" id="vFi-Zg-frK">
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="St0-g4-wy0">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="St0-g4-wy0">
                             <connections>
-                                <action selector="refresh:" destination="tZ5-5Z-Ne3" id="EWU-4E-2Fb"/>
+                                <segue destination="UzJ-bm-QrC" kind="push" identifier="Push to map" id="Zig-cW-xhQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -254,6 +284,12 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="PhotoTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoTableViewController.h"/>
         </class>
@@ -276,6 +312,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5Pr-Q0-Gtr"/>
+        <segue reference="C7e-I0-fae"/>
+        <segue reference="Zig-cW-xhQ"/>
     </inferredMetricsTieBreakers>
 </document>

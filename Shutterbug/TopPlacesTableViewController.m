@@ -25,11 +25,22 @@
     return self;
 }
 
+- (void)setTopPlaces:(NSArray *)topPlaces {
+    _topPlaces = topPlaces;
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.topPlaces = [FlickrFetcher topPlaces];
-    
+    dispatch_queue_t downloadQueue = dispatch_queue_create("FlickrDownloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        NSArray *array = [FlickrFetcher topPlaces];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.topPlaces = array;
+        });
+    });
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -70,7 +81,14 @@
         && [segue.destinationViewController isKindOfClass:[SaveRecentPhotoTableViewController class]]) {
         SaveRecentPhotoTableViewController *ptptvc = segue.destinationViewController;
         NSIndexPath *send = [self.tableView indexPathForSelectedRow];
-        ptptvc.photos = [FlickrFetcher photosInPlace:[self.topPlaces objectAtIndex:send.row] maxResults:50];
+        dispatch_queue_t downloadQueue = dispatch_queue_create("FlickrDownloader", NULL);
+        dispatch_async(downloadQueue, ^{
+            NSArray *array = [FlickrFetcher photosInPlace:[self.topPlaces objectAtIndex:send.row] maxResults:50];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ptptvc.photos = array;
+            });
+        });
+
         ptptvc.title = [self.tableView cellForRowAtIndexPath:send].textLabel.text;
     }
 }

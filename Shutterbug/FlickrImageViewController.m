@@ -15,27 +15,10 @@
 
 @implementation FlickrImageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width , self.imageView.image.size.height);
-    self.scrollView.contentSize = self.imageView.bounds.size;//CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height);
-    //self.scrollView.clipsToBounds = YES;
-    self.scrollView.scrollEnabled = YES;
-    [self.scrollView zoomToRect:self.imageView.bounds animated:YES];
+
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -51,12 +34,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.scrollView.delegate = self; 
-    self.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.imageURL]];
-
-
-    //self.scrollView.scrollEnabled = YES;
-
+    self.scrollView.delegate = self;
+    dispatch_queue_t downloadQueue = dispatch_queue_create("FlickrDownloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        while (!self.imageURL) {
+            //wait
+        }
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.imageURL]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = image;
+            self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width , self.imageView.image.size.height);
+            self.scrollView.contentSize = self.imageView.bounds.size;//CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height);
+            //self.scrollView.clipsToBounds = YES;
+            
+            [self.scrollView zoomToRect:self.imageView.bounds animated:YES];
+            self.scrollView.scrollEnabled = YES;
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning

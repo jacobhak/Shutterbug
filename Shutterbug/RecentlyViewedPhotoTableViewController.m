@@ -20,10 +20,12 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.photos = [[NSUserDefaults standardUserDefaults] objectForKey:RECENT_PHOTOS_KEY];
+    [self.tableView reloadData];
 }
 - (IBAction)refresh:(id)sender {
     [[NSUserDefaults standardUserDefaults] synchronize];
     self.photos = [[NSUserDefaults standardUserDefaults] objectForKey:RECENT_PHOTOS_KEY];
+    [self.tableView reloadData];
 }
 
 @end
